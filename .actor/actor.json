@@ -1,0 +1,76 @@
+{
+  "actorSpecification": 1,
+  "name": "iosys-scraper",
+  "version": "0.1",
+  "buildTag": "latest",
+  "dockerfile": "./Dockerfile",
+  "input": "./INPUT_SCHEMA.json",
+  "outputSchema": {
+    "actorOutputSchemaVersion": 1,
+    "title": "IOSYS product results",
+    "type": "object",
+    "properties": {
+      "productId": {
+        "type": "string",
+        "description": "Product ID",
+        "template": "{{productId}}"
+      },
+      "title": {
+        "type": "string",
+        "description": "Product title",
+        "template": "{{title}}"
+      },
+      "brand": {
+        "type": "string",
+        "description": "Brand / manufacturer",
+        "template": "{{brand}}"
+      },
+      "price": {
+        "type": "string",
+        "description": "Price in yen",
+        "template": "{{price}}"
+      },
+      "rank": {
+        "type": "string",
+        "description": "Product rank",
+        "template": "{{rank}}"
+      },
+      "stock": {
+        "type": "string",
+        "description": "Stock count",
+        "template": "{{stock}}"
+      },
+      "release": {
+        "type": "string",
+        "description": "Release date (YYYY/MM)",
+        "template": "{{release}}"
+      },
+      "condition": {
+        "type": "string",
+        "description": "Condition label",
+        "template": "{{condition}}"
+      },
+      "spec": {
+        "type": "string",
+        "description": "Detailed specs",
+        "template": "{{spec}}"
+      },
+      "imageUrl": {
+        "type": "string",
+        "description": "Image URL",
+        "template": "{{imageUrl}}"
+      },
+      "productUrl": {
+        "type": "string",
+        "description": "Product page URL",
+        "template": "{{productUrl}}"
+      },
+      "scrapedAt": {
+        "type": "string",
+        "description": "Scrape timestamp",
+        "template": "{{scrapedAt}}"
+      }
+    },
+    "additionalProperties": true
+  }
+}

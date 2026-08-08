@@ -1,0 +1,30 @@
+{
+  "title": "IOSYS Scraper Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "keyword": {
+      "title": "Search keyword",
+      "type": "string",
+      "description": "Keyword to search on iosys.co.jp (e.g. iPhone, Galaxy, iPad)",
+      "default": "iPhone",
+      "editor": "textfield"
+    },
+    "maxItems": {
+      "title": "Max items",
+      "type": "integer",
+      "description": "Maximum number of items to scrape",
+      "default": 100,
+      "minimum": 1,
+      "maximum": 500,
+      "editor": "number"
+    },
+    "proxyConfiguration": {
+      "title": "Proxy configuration",
+      "type": "object",
+      "description": "Proxy configuration. Use Auto. Free tier only supports automatic proxy.",
+      "editor": "proxy"
+    }
+  },
+  "required": ["keyword", "maxItems"]
+}

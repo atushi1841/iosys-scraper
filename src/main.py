@@ -124,7 +124,7 @@ async def fetch_page(client, url):
     for attempt in range(3):
         try:
             resp = await client.get(url)
-            print(f"[DEBUG] GET {url} -> {resp.status_code} size={len(resp.text)}", flush=True)
+            print(f"[DEBUG] GET {url} -> {resp.status_code}", flush=True)
             if resp.status_code == 200:
                 resp.encoding = "utf-8"
                 return resp.text

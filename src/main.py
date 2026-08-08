@@ -148,9 +148,11 @@ async def fetch_page(client, url):
 async def main():
     if Actor is not None:
         await Actor.init()
+    print("[DEBUG] main started", flush=True)
 
     try:
         actor_input = await Actor.get_input() if Actor is not None else None
+        print(f"[DEBUG] actor_input: {actor_input}", flush=True)
         if not actor_input:
             raw_input = sys.stdin.read()
             actor_input = json.loads(raw_input) if raw_input.strip() else {}
@@ -158,6 +160,7 @@ async def main():
         max_items = int(actor_input.get("maxItems", 100))
         if max_items <= 0:
             max_items = 100
+        print(f"[DEBUG] keyword={keyword} max_items={max_items}", flush=True)
 
         proxy_url = None
         proxy_config = actor_input.get("proxyConfiguration")
@@ -167,6 +170,7 @@ async def main():
             )
             if proxy:
                 proxy_url = await proxy.new_url()
+        print(f"[DEBUG] proxy_url: {proxy_url}", flush=True)
 
         local_items = []
 
@@ -175,6 +179,7 @@ async def main():
             proxies=proxy_url,
             follow_redirects=True,
         ) as client:
+            print("[DEBUG] client created", flush=True)
             collected = 0
             page = 1
 

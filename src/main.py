@@ -176,7 +176,7 @@ async def main():
 
         async with httpx.AsyncClient(
             timeout=30.0,
-            proxies=proxy_url,
+            proxy=proxy_url,
             follow_redirects=True,
         ) as client:
             print("[DEBUG] client created", flush=True)

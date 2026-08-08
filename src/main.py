@@ -124,6 +124,7 @@ async def fetch_page(client, url):
     for attempt in range(3):
         try:
             resp = await client.get(url)
+            print(f"[DEBUG] GET {url} -> {resp.status_code} size={len(resp.text)}", flush=True)
             if resp.status_code == 200:
                 resp.encoding = "utf-8"
                 return resp.text
@@ -135,7 +136,8 @@ async def fetch_page(client, url):
                 )
             # Any other non-200 status: treat as no data
             return None
-        except Exception:
+        except Exception as exc:
+            print(f"[DEBUG] attempt={attempt} error={type(exc).__name__}: {str(exc)[:150]}", flush=True)
             if attempt == 2:
                 raise
             wait = 2 ** attempt

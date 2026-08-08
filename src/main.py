@@ -214,3 +214,7 @@ async def main():
     finally:
         if Actor is not None:
             await Actor.exit()
+
+
+if __name__ == "__main__":
+    asyncio.run(main())

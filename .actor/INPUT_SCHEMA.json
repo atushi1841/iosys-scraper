@@ -7,8 +7,8 @@
       "title": "Search keyword",
       "type": "string",
       "description": "Keyword to search on iosys.co.jp (e.g. iPhone, Galaxy, iPad)",
-      "default": "iPhone",
-      "editor": "textfield"
+      "editor": "textfield",
+      "prefill": "iPhone"
     },
     "maxItems": {
       "title": "Max items",
@@ -26,5 +26,7 @@
       "editor": "proxy"
     }
   },
-  "required": ["keyword", "maxItems"]
+  "required": [
+    "keyword"
+  ]
 }
